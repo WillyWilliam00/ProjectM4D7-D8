@@ -1,0 +1,42 @@
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+
+
+.title-font {
+    font-family: 'Russo One', sans-serif;
+    font-size: 4em;
+}
+.img-avatar {
+    width: 50px;
+    border: 2px solid white;
+    border-radius: 50px;
+}
+.button-cart {
+    width: 50px;
+    height: 50px;
+    border: 2px solid white !important;
+    border-radius: 50px !important;
+}
+.button-cart i {
+    font-size: 22px;
+    color: white;
+}
+.bg-black {
+    background-color: black;
+}
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #6c757d !important;
+}
+.mt-10 {
+    margin-top: 6rem !important;
+}
+.jumbotron {
+    height: 14em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-inline: auto;
+    color: white;
+    width: 50%;
+}
