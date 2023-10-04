@@ -21,12 +21,9 @@
                     <span>William Costa</span>
                 </a>
                 <ul class="dropdown-menu bg-black">
-                    <li><a class="dropdown-item text-light" href="products/products.html">Lista Prodotti</a></li>
-                    <li><a class="dropdown-item text-light" href="AddProduct/AddProduct.html">Aggiungi Prodotto</a></li>
-                    <li>
-                        <hr class="dropdown-divider text-light">
-                    </li>
-                    <li><a class="dropdown-item text-light" href="#">Log Out</a></li>
+                    <li><a class="dropdown-item text-light" href="../index.html">Home</a></li>
+                    <li><a class="dropdown-item text-light" href="../products/products.html">I Miei Prodotti</a></li>
+                    <li><a class="dropdown-item text-light" href="AddProduct.html">Aggiungi Prodotto</a></li>
                 </ul>
             </ul>
 
@@ -63,58 +60,59 @@
     <main>
         <div class="container mt-5">
             <div class="row">
-                <div class="col-6">
-                    <h4 class="m-0">Compila il form e aggiungi un nuovo prodotto:</h4>
-                </div>
-                <div class="col-6">
-                    <h4 class="m-0">Preview:</h4>
-                </div>
+
+
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-6 mt-10">
-                    <form class="row g-3 d-flex flex-column border border-dark-subtle " onsubmit="AddProduct(event)">
+        <div class="container  position-relative">
+            <div class="row d-flex justify-content-between">
+
+                <div class="col-5 ">
+                    <h4 class="mb-5">Compila il form e aggiungi un nuovo prodotto:</h4>
+                    <form class="row g-3 d-flex flex-column border-radius-black" onsubmit="AddProduct(event)">
                         <div class="col-12">
                             <label for="name" class="form-label">Name</label>
-                            <input required type="text" class="form-control" id="name" placeholder="Name of Product" >
-                            
+                            <input required type="text" class="form-control" id="name" placeholder="Name of Product">
+
                         </div>
                         <div class="col-12">
                             <label for="image" class="form-label">Description</label>
-                            <textarea  required class="form-control" aria-label="With textarea" placeholder="Description" id="description"></textarea>
-                            
+                            <textarea required class="form-control" aria-label="With textarea" placeholder="Description"
+                                id="description"></textarea>
+
                         </div>
                         <div class="col-12">
                             <label for="brand" class="form-label">Brand</label>
-                            <input required type="text" class="form-control" id="brand" placeholder="Brand of Product" >
-                            
+                            <input required type="text" class="form-control" id="brand" placeholder="Brand of Product">
+
                         </div>
                         <div class="col-12">
                             <label for="image" class="form-label">Image Url</label>
-                            <input  required type="text" class="form-control" id="image" placeholder="https://bit.ly/3CExjRa">
-                            
-                        </div>
+                            <input required type="text" class="form-control" id="image"
+                                placeholder="https://bit.ly/3CExjRa">
 
-                        <div class="col-4">
-                            <label for="price" class="form-label">Price</label>
-                            <div class="d-flex">
-                                <span class="input-group-text">€</span>
-                                <input required type="text" class="form-control" id="price" placeholder="5,50" >
-                            </div>
-                            
                         </div>
 
                         <div class="col-12">
-                            <button class="btn btn-primary PreviewButton" onclick="preview()">Preview</button>
-                            <button class="btn btn-primary" type="submit">Add Product</button>
-                            <button class="btn btn-primary" onclick="CleanForm()" type="button">Clean All</button>
+                            <label for="price" class="form-label">Price</label>
+                            <div class="d-flex">
+                                <span class="input-group-text">€</span>
+                                <input required type="text" class="form-control" id="price" placeholder="5,50">
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 text-center py-3">
+                            <button class="btn btn-primary PreviewButton" onclick="preview()" type="button" >↓ SHOW THE PREVIEW
+                                ↓</button>
+                            <button class="btn btn-primary fw-bolder bg-black border-0 mx-1 fs-4 text" type="submit">Add Product</button>
+                            <button class="btn btn-primary fw-bolder bg-black border-0 mx-1 fs-4 text" onclick="CleanForm()" type="button">Clean All</button>
                         </div>
                     </form>
-                    
+
                 </div>
-                <div class="col-6 preview">
-                     
+                <div class="col-6 preview d-flex justify-content-end">
+
                 </div>
             </div>
         </div>
@@ -124,24 +122,21 @@
 
 
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          Hai aggiunto un prodotto con successo!
+    
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Hai aggiunto un prodotto con successo!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
     </div>
-  </div>
 
 
 

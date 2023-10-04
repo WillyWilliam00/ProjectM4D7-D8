@@ -52,3 +52,22 @@
 .border1 {
     border: 2px solid red !important;
 }
+
+.border-radius-black {
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.border-radius {
+    border-radius: 12px !important
+}
+.PreviewButton {
+    position: absolute;
+    top: -6px;
+    right: 15%;
+    z-index: 1;
+    font-weight: bold !important;
+    background-color: black !important;
+    border: none !important;
+    height: 50px;
+    font-size: 22px !important;
+}
