@@ -32,11 +32,23 @@
     margin-top: 6rem !important;
 }
 .jumbotron {
-    height: 14em;
+    height: 18em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-inline: auto;
     color: white;
-    width: 50%;
+    width: 70%;
+    background-image: url(img/istockphoto-1298777114-170667a.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron h1, .jumbotron h4 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 3.5rem;
+}
+
+.border1 {
+    border: 2px solid red !important;
 }

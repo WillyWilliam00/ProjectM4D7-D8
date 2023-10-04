@@ -17,7 +17,7 @@
             <ul class="nav-item dropdown p-0 m-0">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <img src="download.jpeg" alt="" class="img-avatar">
+                    <img src="img/download.jpeg" alt="" class="img-avatar">
                     <span>William Costa</span>
                 </a>
                 <ul class="dropdown-menu bg-black">
@@ -60,11 +60,16 @@
             </div>
         </div>
     </nav>
-    <div class="mt-2" style="background-color: grey;">
+    <div class="mt-2">
 
         <div class="jumbotron">
             <div class="me-auto ms-5">
                 <h1>Everything...</h1>
+            </div>
+            <div class="input-group  w-75 mx-auto">
+                
+                <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                    placeholder="Search Something...">
             </div>
             <div class="ms-auto me-5">
                 <h4>...for Everyone!</h4>
@@ -72,23 +77,23 @@
         </div>
     </div>
     </div>
-    <div class="input-group mb-3 w-50 mt-10 mx-auto">
-        <button class="btn btn-outline-secondary dropdown-toggle bg-black text-light" type="button"
-            data-bs-toggle="dropdown" aria-expanded="false">Ordina: </button>
-        <ul class="dropdown-menu p-0">
-            <li><a class="dropdown-item bg-black text-light" href="#">Ordine Alfabetico</a></li>
-            <li><a class="dropdown-item bg-black text-light" href="#">Prezzo Crescente</a></li>
-            <li><a class="dropdown-item bg-black text-light" href="#">Prezzo Decrescente</a></li>
-        </ul>
-        <input type="text" class="form-control" aria-label="Text input with dropdown button"
-            placeholder="Search Something...">
-    </div>
+    
 
     <main class="mt-10">
         <div class="container">
-            <h4>Prodotti Disponibili:</h4>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-outline-secondary dropdown-toggle bg-black text-light me-5" type="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">Ordina: </button>
+                <ul class="dropdown-menu p-0">
+                    <li><a class="dropdown-item bg-black text-light" href="#">Ordine Alfabetico</a></li>
+                    <li><a class="dropdown-item bg-black text-light" href="#">Prezzo Crescente</a></li>
+                    <li><a class="dropdown-item bg-black text-light" href="#">Prezzo Decrescente</a></li>
+                </ul>
+            <h4 class="m-0">Prodotti Disponibili:</h4>
+            
+            </div>    
             <div class="row mt-10">
-                <div class="col-3 my-5" >
+                <!-- <div class="col-3 my-5" >
                     <div class="card border-0">
                          <a href="/product/product.html?id=${book.asin}">
                             <img src="${book.img}" class="card-img-top " alt="...">
@@ -104,7 +109,7 @@
                           
                           </div>
                     </div>
-                  </div>`
+                  </div>` -->
             </div>
         </div>
         
