@@ -14,21 +14,26 @@
 <body>
     <nav class="navbar bg-black text-light">
         <div class="container-fluid">
-            <ul class="nav-item dropdown p-0 m-0">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <img src="img/download.jpeg" alt="" class="img-avatar">
-                    <span>William Costa</span>
-                </a>
+            <div class="d-flex align-items-baseline">
+                <ul class="nav-item dropdown p-0 m-0">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="img/download.jpeg" alt="" class="img-avatar">
+                        <span>William Costa</span>
+                    </a>
 
-                <ul class="dropdown-menu bg-black">
-                    <li><a class="dropdown-item text-light" href="index.html">Home</a></li>
-                    <li><a class="dropdown-item text-light" href="products/products.html">I Miei Prodotti</a></li>
-                    <li><a class="dropdown-item text-light" href="AddProduct/AddProduct.html">Aggiungi Prodotto</a></li>
+                    <ul class="dropdown-menu bg-black">
+                        <li><a class="dropdown-item text-light" href="index.html">Home</a></li>
+                        <li><a class="dropdown-item text-light" href="products/products.html">I Miei Prodotti</a></li>
+                        <li><a class="dropdown-item text-light" href="AddProduct/AddProduct.html">Aggiungi Prodotto</a>
+                        </li>
+                    </ul>
+
                 </ul>
-
-            </ul>
-
+                <a class="text-decoration-none text-light" href="index.html"><div class="border px-2 ms-5 me-3"><h6 class="m-0 p-2">HOME</h6></div></a>
+                <a class="text-decoration-none text-light" href="products/products.html"><div class="border px-2 mx-3 "><h6 class="m-0 p-2">I Miei Prodotti</h6></div></a>
+                <a class="text-decoration-none text-light" href="AddProduct/AddProduct.html"><div class="border px-2 mx-3"><h6 class="m-0 p-2">Aggiungi Prodotto</h6></div></a>
+            </div>
             <div>
                 <h4 class="title-font">Bazar Di Willy</h4>
             </div>
@@ -78,7 +83,7 @@
     </div>
 
 
-    <main class="mt-10">
+    <main class="mt-10  position-relative">
         <div class="container">
             <div class="d-flex align-items-center">
                 <button class="btn btn-outline-secondary dropdown-toggle bg-black text-light me-5" type="button"
