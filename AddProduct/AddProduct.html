@@ -56,7 +56,7 @@
                     <form class="row g-3 d-flex flex-column border-radius-black" onsubmit="AddProduct(event)" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content="Compila tutti i campi.">
                         <div class="col-12">
                             <label for="name" class="form-label">Name</label>
-                            <input required type="text" class="form-control" id="name" placeholder="Name of Product">
+                            <input required type="text" class="form-control" id="name" placeholder="Product Name">
 
                         </div>
                         <div class="col-12">
@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-12">
                             <label for="brand" class="form-label">Brand</label>
-                            <input required type="text" class="form-control" id="brand" placeholder="Brand of Product">
+                            <input required type="text" class="form-control" id="brand" placeholder="Product Brand">
 
                         </div>
                         <div class="col-12">
@@ -81,7 +81,7 @@
                             <label for="price" class="form-label">Price</label>
                             <div class="d-flex">
                                 <span class="input-group-text form-price-border-span">€</span>
-                                <input required type="text" class="form-control form-price-border-input" id="price" placeholder="5,50">
+                                <input required type="text" class="form-control form-price-border-input" id="price" placeholder="5.50">
                             </div>
 
                         </div>
@@ -94,7 +94,7 @@
 
                 </div>
                 <div class="col-5 d-flex flex-column">
-                    <button class="btn btn-primary PreviewButton mx-auto hover-button" onclick="preview()" type="button" >↓ SHOW THE PREVIEW ↓</button>
+                    <button class="btn btn-primary PreviewButton mx-auto hover-button" onclick="preview()" type="button" >↓ PREVIEW ↓</button>
                         <div class="preview  my-auto"></div>
                 </div>
             </div>

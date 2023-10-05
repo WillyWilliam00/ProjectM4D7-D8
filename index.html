@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav class="navbar bg-black text-light">
+    <nav class="navbar bg-black text-light sticky-top">
         <div class="container-fluid">
             <div class="d-flex align-items-baseline">
                 <ul class="nav-item dropdown p-0 m-0">
@@ -73,7 +73,7 @@
             <div class="input-group  w-75 mx-auto">
 
                 <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                    placeholder="Search Something...">
+                    placeholder="Search Something..." oninput="text()">
             </div>
             <div class="ms-auto me-5">
                 <h4>...for Everyone!</h4>
@@ -97,23 +97,7 @@
 
             </div>
             <div class="row mt-10">
-                <!-- <div class="col-3 my-5" >
-                    <div class="card border-0">
-                         <a href="/product/product.html?id=${book.asin}">
-                            <img src="${book.img}" class="card-img-top " alt="...">
-                            <i class="bi bi-plus-circle more fs-2"></i>
-                         </a>
-                         
-                        <div class="card-body text-center">
-                          <h5 class="card-title card-title-inbody text">${book.title}</h5>
-                          <p class="card-text">Prezzo: <span class="fw-medium">${book.price}€</span></p>
-                          <button type="button" class="border-0 btn btn-primary position-relative" onclick='AddBook("${book.asin}")'><span><i class="bi bi-cart cart-main"></i></span>
-                          </button>
-                          <button type="button" class="btn btn-primary  bg-danger text-dark border-0" onclick='RemoveBook("${book.asin}")'>REMOVE FROM CART</button>
-                          
-                          </div>
-                    </div>
-                  </div>` -->
+               
             </div>
         </div>
 

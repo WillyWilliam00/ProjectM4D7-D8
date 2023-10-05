@@ -46,7 +46,11 @@ function preview() {
 
 
 async function AddProduct(event) {
+
   event.preventDefault()
+  prew.innerHTML = /*html*/ 
+
+    `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`
   
   const response = await fetch("https://striveschool-api.herokuapp.com/api/product/", {
     method: "POST",
@@ -67,6 +71,7 @@ async function AddProduct(event) {
   if (response.ok) {
     ShowModal()
     CleanForm()
+    prew.querySelector(".lds-ring").remove()
   } else {
     console.error("Cannot send")
   }
@@ -99,7 +104,7 @@ function CleanForm() {
 function FocusInputWithoutValue() {
   prew.innerHTML = `<h2 class="text-danger">Compila tutti i campi per procedere!</h2>`
   for (const input of [NameProduct, DescriptionProduct, BrandProduct, ImageProduct, PriceProduct]) {
-    if(input.value === "") return input.classList.add("focus-input")
+    if(input.value === "") return input.classList.add("focus-input"), input.focus()
     
  }
 }
