@@ -1,5 +1,5 @@
 const Row = document.querySelector(".row")
-
+let result = []
 
 
 async function GetProducts() {
@@ -10,7 +10,8 @@ async function GetProducts() {
     try {const response = await fetch("https://striveschool-api.herokuapp.com/api/product/",
                                 { headers: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjZjIwYzUyYmJmMzAwMTg3OWIxZTgiLCJpYXQiOjE2OTYzOTU3ODgsImV4cCI6MTY5NzYwNTM4OH0.9R7rOYsAE9jENc32hvt3ua7fc2bv2dWkSDK-PGXuOFE" }}  )
         const data = await response.json()
-        console.log(data)
+        result = data
+        console.log(result)
         return data}
     catch {
         alert("oh oh");
@@ -20,16 +21,16 @@ async function GetProducts() {
       }
 }
 
-function text(data) { //funzione che aggiorna il dom in base all'input value search
+function text() { //funzione che aggiorna il dom in base all'input value search
     
-    const value = document.querySelector("input").value
+     const value = document.querySelector("input").value
     
-         
-    let ArrayProductSearch = data.filter(product => 
-             product.toLowerCase().includes(value.toLowerCase())
-         )
+     let ArrayProductSearch = result.filter(product => 
+              product.name.toLowerCase().includes(value.toLowerCase())
+          )
         
-         DisplayProducts(ArrayProductSearch)
+        console.log(ArrayProductSearch)
+        DisplayProducts(ArrayProductSearch)
 }
 
     

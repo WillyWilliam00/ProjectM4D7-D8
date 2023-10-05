@@ -48,9 +48,7 @@ function preview() {
 async function AddProduct(event) {
 
   event.preventDefault()
-  prew.innerHTML = /*html*/ 
-
-    `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`
+  
   
   const response = await fetch("https://striveschool-api.herokuapp.com/api/product/", {
     method: "POST",
@@ -71,7 +69,7 @@ async function AddProduct(event) {
   if (response.ok) {
     ShowModal()
     CleanForm()
-    prew.querySelector(".lds-ring").remove()
+    
   } else {
     console.error("Cannot send")
   }
@@ -86,12 +84,12 @@ function  ShowModal(){
 
 document.addEventListener("click",  function (event) {
   if(event.target !== PrevieWbutton) {
-
+   
     for (const input of [NameProduct, DescriptionProduct, BrandProduct, ImageProduct, PriceProduct]) {
        input.classList.remove("focus-input")
        
    }
-  }
+  } 
 })
 
 function CleanForm() {
