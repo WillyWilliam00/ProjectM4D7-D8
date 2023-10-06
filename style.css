@@ -30,9 +30,7 @@
 .dropdown-item:focus, .dropdown-item:hover {
     background-color: #6c757d !important;
 }
-.mt-10 {
-    margin-top: 6rem !important;
-}
+
 .jumbotron {
     height: 18em;
     display: flex;
@@ -111,7 +109,7 @@
     transform:scale(1);
   }
   .hover-button:hover {
-    transform:scale(1.02);
+    transform:scale(1.05);
   }
 
   .lds-ring {

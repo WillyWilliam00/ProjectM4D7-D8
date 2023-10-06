@@ -27,25 +27,34 @@ function DisplayProduct(data) {
 
     col.innerHTML =  /*html*/
 
-    `<div class="d-flex">
+    `<div class="d-flex justify-content-center align-items-center">
         <div>
             <img src="${data.imageUrl}" class="border-radius-black" style="max-width: 600px; max-height: 450px;">
         </div>
-        <div class=" ms-5 px-3 border-radius-black d-flex flex-column justify-content-evenly">
-            <div class="border-bottom border-secondary-subtle">
+        <div class=" col-6 ms-5 px-3 border-radius-black d-flex flex-column justify-content-evenly">
+            <div class="border-bottom border-secondary-subtle py-2">
                 <h2>${data.name}</h2>
             </div>
             <div class="border-bottom border-secondary-subtle"><h4>Brand:</h4>
-                <p>${data.brand}</p>
+                <p class="fs-5">${data.brand}</p>
             </div>
             <div class="border-bottom border-secondary-subtle"><h4>Descrizione:</h4>
-                <p>${data.description}</p>
+                <p class="fs-6" >${data.description}</p>
             </div>
-            <div><h4>Prezzo:</h4>
-                <p>${data.price}</p>
+            <div class="border-bottom border-secondary-subtle">
+                <h4>Prezzo:</h4>
+                <p class="fs-6" >${data.price} €</p>
+            </div>   
+            <div class="mx-auto py-2">
+                <button type="button" class=" fs-4 hover-button border-0 btn btn-primary bg-success text-light me-1">
+                    <i class="bi bi-cart cart-main"></i>
+                </button>
+                <a href="../index.html"><button type="button" class=" fs-4 border-0 hover-button btn btn-secondary ms-1"><i class="bi bi-arrow-left"></i> Go Home</button></a>
             </div>
+            
         </div>    
     </div>`
+    
 }
 
 window.onload = async () => {

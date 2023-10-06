@@ -10,4 +10,3 @@ async function deleteproduct() {
   })
 }
 
-deleteproduct()
