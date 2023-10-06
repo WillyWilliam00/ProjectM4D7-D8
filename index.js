@@ -33,7 +33,7 @@ function text() { //funzione che aggiorna il dom in base all'input value search
         DisplayProducts(ArrayProductSearch)
 }
 
-    
+
         
     
 window.onload = async () => {
@@ -52,7 +52,7 @@ function DisplayProducts(data) {
      `<div class=" col-6 card mb-3 border-0">
      <div class="row g-0 my-auto border-radius-black">
          <div class="col-6">
-         <a href="" class="position-relative">
+         <a href="product/product.html?id=${product._id}" class="position-relative">
             <img src="${product.imageUrl}" class="card-img-top border-radius-img" alt="..." style="height: 100%; aspect-ratio: 0.8; object-fit: cover;">
              <i class="bi bi-plus-circle more fs-2"></i>
          </a>
@@ -75,3 +75,33 @@ function DisplayProducts(data) {
    </div>`
     ).join("")
     }
+
+function AlphabeticOrder() {
+  
+  result.sort((a, b) => {
+    const nameA = a.name.toLowerCase(); 
+    const nameB = b.name.toLowerCase(); 
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+  
+    
+    return 0;
+  });
+
+  DisplayProducts(result)
+
+}
+
+function IncreasingPrice() {
+  result.sort((a, b) => a.price - b.price);
+  DisplayProducts(result)
+}
+
+function DecreasingPrice() {
+  result.sort((a, b) => a.price - b.price).reverse()
+  DisplayProducts(result)
+}

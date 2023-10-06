@@ -46,10 +46,10 @@ function preview() {
 
 
 async function AddProduct(event) {
-
   event.preventDefault()
-  
-  
+  document.querySelector(".waveform").classList.remove("d-none")
+  document.documentElement.classList.add("filterBody")
+
   const response = await fetch("https://striveschool-api.herokuapp.com/api/product/", {
     method: "POST",
     headers: {
@@ -67,11 +67,15 @@ async function AddProduct(event) {
   })
 
   if (response.ok) {
+    document.querySelector(".waveform").classList.add("d-none")
     ShowModal()
+    document.documentElement.classList.remove("filterBody")
     CleanForm()
     
   } else {
     console.error("Cannot send")
+    document.querySelector(".waveform").classList.add("d-none")
+    document.classList.remove("filterBody")
   }
 }
 

@@ -11,7 +11,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="position-relative">
     <nav class="navbar bg-black text-light">
         <div class="container-fluid">
             <div class="d-flex align-items-baseline">
@@ -101,30 +101,38 @@
         </div>
         </div>
     </main>
-
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                Hai aggiunto un prodotto con successo!
+            </div>
+            <div class="modal-footer flex-column">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aggiungi un nuovo prodotto</button>
+                <div>
+                    <a href="../products/products.html"><button type="button" class="btn btn-secondary bg-success text-light">I Tuoi Prodotti</button></a>
+                    <a href="../index.html"><button type="button" class="btn btn-secondary bg-success text-light">Home Page</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
     
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    Hai aggiunto un prodotto con successo!
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="../products/products.html"><button type="button" class="btn btn-secondary bg-success text-light"> Vai Ai Tuoi Prodotti</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
   
 
-
+    <div class="waveform d-none">
+        <div class="waveform__bar"></div>
+        <div class="waveform__bar"></div>
+        <div class="waveform__bar"></div>
+        <div class="waveform__bar"></div>
+      </div>
 
 
 
