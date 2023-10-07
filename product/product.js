@@ -1,6 +1,6 @@
-const params = new URLSearchParams(window.location.search)
-const id = params.get("id")
-const col = document.querySelector(".col-12")
+let params = new URLSearchParams(window.location.search)
+let id = params.get("id")
+let col = document.querySelector(".col-12")
 
 async function GetProduct() {
     col.innerHTML = /*html*/

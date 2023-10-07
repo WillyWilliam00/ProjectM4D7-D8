@@ -42,18 +42,12 @@
         </div>
     </nav>
     <main class="mb-5">
-        <div class="container mt-1 mb-5">
-            <div class="row">
-
-
-            </div>
-        </div>
-        <div class="container p-0 mb-5">
+        <div class="container p-0 mb-5 mt-5">
             <div class="row d-flex justify-content-between">
 
                 <div class="col-5 ">
                     <h4 class="mb-5">Compila il form e aggiungi un nuovo prodotto:</h4>
-                    <form class="row g-3 d-flex flex-column border-radius-black" onsubmit="AddProduct(event)" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-content="Compila tutti i campi.">
+                    <form class="row g-3 d-flex flex-column border-radius-black" onsubmit="AddProduct(event)">
                         <div class="col-12">
                             <label for="name" class="form-label">Name</label>
                             <input required type="text" class="form-control" id="name" placeholder="Product Name">

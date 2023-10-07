@@ -24,7 +24,7 @@ async function GetProducts() {
   }
 }
 
-function text() { //funzione che aggiorna il dom in base all'input value search
+function text() { 
 
   const value = document.querySelector("input").value
 
