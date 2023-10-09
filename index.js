@@ -68,7 +68,7 @@ function DisplayProducts(data) {
                <div>
                   <div class="border-bottom border-secondary-subtle d-flex justify-content-between align-items-center pb-3">
                    <p class="fw-bolder m-0" style="font-size: 18px;">${product.name}</p>
-                   <button type="button" class="btn btn-primary bg-success border-0 fs-5 text-light hover-button" onclick="AddCart('${product._id}')"><i class="bi bi-cart cart-main"></i>
+                   <button type="button" id="buttonInbody_${product._id}" class="btn btn-primary bg-success border-0 fs-5 text-light hover-button position-relative" onclick="AddCart('${product._id}')"><span></span><i class="bi bi-cart cart-main"></i>
                   </button>
                   </div>  
                    <p class="card-text py-3 m-0 border-bottom border-secondary-subtle"><span class="fw-bolder">Prezzo:  </span>${product.price}€</p>
@@ -115,16 +115,19 @@ function DecreasingPrice() {
 
 function AddCart(id) {
 
+  const button = document.querySelector(`#buttonInbody_${id}`)
+  button.querySelector("span").classList.add("countQuantity")
+
   NavCart.classList.replace("bi-cart", "bi-cart-fill")
   animation()
-
-
   const CorrentProduct =  result.find(product => product._id === id) 
   if(!ArrayProductCart.includes(CorrentProduct)){
     CorrentProduct.quantity = 1
-    ArrayProductCart.push(CorrentProduct)    
+    ArrayProductCart.push(CorrentProduct)  
+    button.querySelector("span").innerHTML  =  1
   } else {
     ArrayProductCart.find(product => product.name === CorrentProduct.name).quantity  = CorrentProduct.quantity + 1
+    button.querySelector("span").innerHTML = CorrentProduct.quantity 
   }
   ShowCart()
   total()
@@ -132,6 +135,9 @@ function AddCart(id) {
 
 function RemoveCart(id) {
   const CorrentProduct =  ArrayProductCart.findIndex(product => product._id === id)
+  const button = document.querySelector(`#buttonInbody_${id}`)
+  button.querySelector("span").innerHTML = ""
+  button.querySelector("span").classList.remove("countQuantity")
   ArrayProductCart.splice(CorrentProduct, 1)
   ShowCart()
   total()
