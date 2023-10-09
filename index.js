@@ -117,9 +117,9 @@ function AddCart(id) {
 
   const button = document.querySelector(`#buttonInbody_${id}`)
   button.querySelector("span").classList.add("countQuantity")
-
   NavCart.classList.replace("bi-cart", "bi-cart-fill")
   animation()
+
   const CorrentProduct =  result.find(product => product._id === id) 
   if(!ArrayProductCart.includes(CorrentProduct)){
     CorrentProduct.quantity = 1
@@ -135,10 +135,12 @@ function AddCart(id) {
 
 function RemoveCart(id) {
   const CorrentProduct =  ArrayProductCart.findIndex(product => product._id === id)
+  ArrayProductCart.splice(CorrentProduct, 1)
+
   const button = document.querySelector(`#buttonInbody_${id}`)
   button.querySelector("span").innerHTML = ""
   button.querySelector("span").classList.remove("countQuantity")
-  ArrayProductCart.splice(CorrentProduct, 1)
+
   ShowCart()
   total()
 
@@ -147,20 +149,18 @@ function RemoveCart(id) {
 function total() {
   let prezzototale = 0
   let quantitàtotale = 0
-  const Quantity =  document.querySelector(".quantity")
-  const Price = document.querySelector(".total")
   const QuantityinCart =  document.querySelectorAll(".quantity-incart")
   const PriceinCart = document.querySelectorAll(".price-incart")
 
   PriceinCart.forEach(x => {
     prezzototale = prezzototale + parseFloat(x.innerHTML)
   })
-  Price.innerHTML = `${prezzototale}€`
+  document.querySelector(".total").innerHTML = `${prezzototale}€`
 
   QuantityinCart.forEach(x => {
     quantitàtotale = quantitàtotale + parseFloat(x.innerHTML)
   })
-  Quantity.innerHTML = quantitàtotale
+  document.querySelector(".quantity").innerHTML = quantitàtotale
 
   if(prezzototale === 0){
     NavCart.classList.replace("bi-cart-fill", "bi-cart")
