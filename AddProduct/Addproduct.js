@@ -1,10 +1,10 @@
-let prew = document.querySelector(".preview")
-let NameProduct = document.querySelector("#name")
-let DescriptionProduct = document.querySelector("#description")
-let BrandProduct = document.querySelector("#brand")
-let ImageProduct = document.querySelector("#image")
-let PriceProduct = document.querySelector("#price")
-let PrevieWbutton = document.querySelector(".PreviewButton")
+const prew = document.querySelector(".preview")
+const NameProduct = document.querySelector("#name")
+const DescriptionProduct = document.querySelector("#description")
+const BrandProduct = document.querySelector("#brand")
+const ImageProduct = document.querySelector("#image")
+const PriceProduct = document.querySelector("#price")
+const PrevieWbutton = document.querySelector(".PreviewButton")
 
 
 

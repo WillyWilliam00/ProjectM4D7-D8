@@ -1,16 +1,33 @@
  params = new URLSearchParams(window.location.search)
  id = params.get("id")
- col = document.querySelector("main")
+ 
+
+  const form = document.querySelector(".form")
+  const prew = document.querySelector(".preview")
+  const PrevieWbutton = document.querySelector(".PreviewButton")
+  const SpanProductName = document.querySelectorAll(".product-title")
 
 
-prew = document.querySelector(".preview")
-  NameProduct = document.querySelector("#name")
-  DescriptionProduct = document.querySelector("#description")
-  BrandProduct = document.querySelector("#brand")
-  ImageProduct = document.querySelector("#image")
-  PriceProduct = document.querySelector("#price")
-  PrevieWbutton = document.querySelector(".PreviewButton")
- const SpanProductName = document.querySelectorAll(".product-title")
+ async function GetProduct() {
+    form.innerHTML = /*html*/
+
+        `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`
+
+    try {
+        const response = await fetch(`https:striveschool-api.herokuapp.com/api/product/${id}`,
+            { headers: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjZjIwYzUyYmJmMzAwMTg3OWIxZTgiLCJpYXQiOjE2OTYzOTU3ODgsImV4cCI6MTY5NzYwNTM4OH0.9R7rOYsAE9jENc32hvt3ua7fc2bv2dWkSDK-PGXuOFE" } })
+        const data = await response.json()
+
+        console.log(data)
+        return data
+    }
+    catch {
+        alert("oh oh");
+    }
+    finally {
+        form.querySelector(".lds-ring").remove();
+    }
+}
 
  
  window.onload = async () => {
@@ -20,14 +37,15 @@ prew = document.querySelector(".preview")
 }
 
 
-async function ShowForm(data) {
+ function ShowForm(data) {
+    
 
     SpanProductName.forEach(title => {
         title.innerHTML = `${data.name}`
     })
 
 
-  document.querySelector(".form").innerHTML = /*html*/
+    form.innerHTML = /*html*/
 
     `
     <h4 class="mb-5">Compila il form e modifica <span class="product-title">${data.name}</span></h4>
@@ -40,7 +58,7 @@ async function ShowForm(data) {
                         <div class="col-12">
                             <label for="image" class="form-label">Description</label>
                             <textarea required class="form-control" aria-label="With textarea" placeholder="Description"
-                                id="description" value="${data.description}"></textarea>
+                                id="description">${data.description}</textarea>
 
                         </div>
                         <div class="col-12">
@@ -51,7 +69,7 @@ async function ShowForm(data) {
                         <div class="col-12">
                             <label for="image" class="form-label">Image Url</label>
                             <input required type="text" class="form-control" id="image"
-                                placeholder="https://bit.ly/3CExjRa" value="${data.imageUrl}">
+                                placeholder="https:bit.ly/3CExjRa" value="${data.imageUrl}">
 
                         </div>
 
@@ -72,12 +90,54 @@ async function ShowForm(data) {
     `
 }
 
+function preview() {
+    const NameProduct = document.querySelector("#name")
+    const DescriptionProduct = document.querySelector("#description")
+    const BrandProduct = document.querySelector("#brand")
+    const ImageProduct = document.querySelector("#image")
+    const PriceProduct = document.querySelector("#price")
+   
+    
+     FocusInputWithoutValue()
+     if ((NameProduct.value !== "") && (DescriptionProduct.value !== "") && (BrandProduct.value !== "") && (ImageProduct.value !== "") && (PriceProduct.value !== "")) {
+      
+       prew.innerHTML = `
+          <div class="card mb-3 border-0">
+             <div class="row g-0 my-auto border-radius-black">
+                 <div class="col-6">
+                 <a href="" class="position-relative">
+                    <img src="${ImageProduct.value}" class="card-img-top border-radius-img" alt="..." style="height: 100%; aspect-ratio: 0.8; object-fit: cover;">
+                     <i class="bi bi-plus-circle more fs-2"></i>
+                 </a>
+                  
+                 </div>
+                 <div class="col-6">
+                     <div class="card-body d-flex flex-column" style= "height: 100%;">
+                         <div>
+                             <h5 class="card-title card-title-inbody pb-3 m-0 border-bottom border-secondary-subtle">${NameProduct.value}</h5>
+                             <p class="card-text py-3 m-0 border-bottom border-secondary-subtle"><span class="fw-bolder">Prezzo:  </span>${PriceProduct.value}€</p>
+                             <p class="card-text py-3 m-0 border-bottom border-secondary-subtle"><span class="fw-bolder">Brand:  </span>${BrandProduct.value}</p>
+                         </div> 
+                         <span class="fw-bolder py-3">Description:</span>
+                         <p class="card-text my-auto mb-2 border overflow-auto" style= "max-height: 130px;">${DescriptionProduct.value}</p>
+                         <div class="pt-2"><button type="button" class="border-0 btn btn-primary bg-success border-0 fs-5 text-light"><span><i class="bi bi-cart cart-main"></i></span>
+                          </button></div>
+                     </div>
+                 </div>
+              </div>
+           </div>
+         
+        `
+     }
+    }
+
 
 
 async function ModifyProduct(event) {
     event.preventDefault();
+    
     document.querySelector(".waveform").classList.remove("d-none")
-    document.documentElement.classList.add("filterBody")
+  document.documentElement.classList.add("filterBody")
 
     const ModificatedProduct = {
         name: NameProduct.value,
@@ -86,7 +146,7 @@ async function ModifyProduct(event) {
         imageUrl: ImageProduct.value,
         price: PriceProduct.value
     }
-        const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
+        const response = await fetch(`https:striveschool-api.herokuapp.com/api/product/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -102,7 +162,7 @@ async function ModifyProduct(event) {
             CleanForm()
             
           } else {
-            console.error("Cannot send")
+            console.error("oh oh")
             document.querySelector(".waveform").classList.add("d-none")
             document.classList.remove("filterBody")
           }
@@ -110,3 +170,48 @@ async function ModifyProduct(event) {
     
 }
 
+function  ShowModal(){
+    let myModal = new bootstrap.Modal(document.getElementById('myModal'), {});
+    myModal.show();
+  }
+  
+  document.addEventListener("click",  function (event) {
+    NameProduct = document.querySelector("#name")
+   DescriptionProduct = document.querySelector("#description")
+   BrandProduct = document.querySelector("#brand")
+   ImageProduct = document.querySelector("#image")
+   PriceProduct = document.querySelector("#price")
+    if(event.target !== PrevieWbutton) {
+     
+      for (const input of [NameProduct, DescriptionProduct, BrandProduct, ImageProduct, PriceProduct]) {
+         input.classList.remove("focus-input")
+         
+     }
+    } 
+  })
+  
+  function CleanForm() {
+    NameProduct = document.querySelector("#name")
+   DescriptionProduct = document.querySelector("#description")
+   BrandProduct = document.querySelector("#brand")
+   ImageProduct = document.querySelector("#image")
+   PriceProduct = document.querySelector("#price")
+    prew.innerHTML = ""
+    for (const input of [NameProduct, DescriptionProduct, BrandProduct, ImageProduct, PriceProduct]) {
+      input.value = ''
+    }
+  
+  }
+  function FocusInputWithoutValue() {
+     NameProduct = document.querySelector("#name")
+   DescriptionProduct = document.querySelector("#description")
+   BrandProduct = document.querySelector("#brand")
+   ImageProduct = document.querySelector("#image")
+   PriceProduct = document.querySelector("#price")
+    
+    prew.innerHTML = `<h2 class="text-danger">Compila tutti i campi per procedere!</h2>`
+    for (const input of [NameProduct, DescriptionProduct, BrandProduct, ImageProduct, PriceProduct]) {
+      if(input.value === "") return input.classList.add("focus-input"), input.focus()
+      
+   }
+  }
