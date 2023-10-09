@@ -1,5 +1,5 @@
- params = new URLSearchParams(window.location.search)
- id = params.get("id")
+ const params = new URLSearchParams(window.location.search)
+ const id = params.get("id")
  
 
   const form = document.querySelector(".form")
@@ -14,7 +14,7 @@
         `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`
 
     try {
-        const response = await fetch(`https:striveschool-api.herokuapp.com/api/product/${id}`,
+        const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`,
             { headers: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjZjIwYzUyYmJmMzAwMTg3OWIxZTgiLCJpYXQiOjE2OTYzOTU3ODgsImV4cCI6MTY5NzYwNTM4OH0.9R7rOYsAE9jENc32hvt3ua7fc2bv2dWkSDK-PGXuOFE" } })
         const data = await response.json()
 
@@ -88,6 +88,8 @@
                         </div>
                     </form>
     `
+
+    preview()
 }
 
 function preview() {
@@ -137,7 +139,7 @@ async function ModifyProduct(event) {
     event.preventDefault();
     
     document.querySelector(".waveform").classList.remove("d-none")
-  document.documentElement.classList.add("filterBody")
+    document.documentElement.classList.add("filterBody")
 
     const ModificatedProduct = {
         name: NameProduct.value,
@@ -146,7 +148,7 @@ async function ModifyProduct(event) {
         imageUrl: ImageProduct.value,
         price: PriceProduct.value
     }
-        const response = await fetch(`https:striveschool-api.herokuapp.com/api/product/${id}`, {
+        const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

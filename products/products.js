@@ -35,8 +35,7 @@ async function deleteproduct(name, id) {
     if (!confirm(`Sei sicuro di voler eliminare ${name}?`)) {
     return}
 
-    document.querySelector(".waveform").classList.remove("d-none")
-    document.documentElement.classList.add("filterBody")
+    
     
   const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
     method: "DELETE",
@@ -44,15 +43,10 @@ async function deleteproduct(name, id) {
       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjZjIwYzUyYmJmMzAwMTg3OWIxZTgiLCJpYXQiOjE2OTYzOTU3ODgsImV4cCI6MTY5NzYwNTM4OH0.9R7rOYsAE9jENc32hvt3ua7fc2bv2dWkSDK-PGXuOFE"
     }})
     if (response.ok) {
-      document.querySelector(".waveform").classList.add("d-none")
       alert(`Prodotto ${name} eliminato!`)
-      document.documentElement.classList.remove("filterBody")
       DisplayMyProducts(await GetProducts())
     } else {
       alert("Oh Oh, riprova!")
-      document.querySelector(".waveform").classList.add("d-none")
-      document.classList.remove("filterBody")
-            
   }
    
 }
