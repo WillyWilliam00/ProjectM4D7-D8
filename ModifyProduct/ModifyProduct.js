@@ -37,7 +37,7 @@
 }
 
 
- function ShowForm(data) {
+async function ShowForm(data) {
     
 
     SpanProductName.forEach(title => {
@@ -92,12 +92,13 @@
     preview()
 }
 
-function preview() {
+async function preview() {
     const NameProduct = document.querySelector("#name")
     const DescriptionProduct = document.querySelector("#description")
     const BrandProduct = document.querySelector("#brand")
     const ImageProduct = document.querySelector("#image")
     const PriceProduct = document.querySelector("#price")
+    
    
     
      FocusInputWithoutValue()
@@ -137,7 +138,6 @@ function preview() {
 
 async function ModifyProduct(event) {
     event.preventDefault();
-    
     document.querySelector(".waveform").classList.remove("d-none")
     document.documentElement.classList.add("filterBody")
 
@@ -172,17 +172,17 @@ async function ModifyProduct(event) {
     
 }
 
-function  ShowModal(){
+ function  ShowModal(){
     let myModal = new bootstrap.Modal(document.getElementById('myModal'), {});
     myModal.show();
   }
   
   document.addEventListener("click",  function (event) {
     NameProduct = document.querySelector("#name")
-   DescriptionProduct = document.querySelector("#description")
-   BrandProduct = document.querySelector("#brand")
-   ImageProduct = document.querySelector("#image")
-   PriceProduct = document.querySelector("#price")
+    DescriptionProduct = document.querySelector("#description")
+    BrandProduct = document.querySelector("#brand")
+    ImageProduct = document.querySelector("#image")
+    PriceProduct = document.querySelector("#price")
     if(event.target !== PrevieWbutton) {
      
       for (const input of [NameProduct, DescriptionProduct, BrandProduct, ImageProduct, PriceProduct]) {
@@ -192,25 +192,20 @@ function  ShowModal(){
     } 
   })
   
-  function CleanForm() {
-    NameProduct = document.querySelector("#name")
-   DescriptionProduct = document.querySelector("#description")
-   BrandProduct = document.querySelector("#brand")
-   ImageProduct = document.querySelector("#image")
-   PriceProduct = document.querySelector("#price")
+    function CleanForm() {
+        NameProduct = document.querySelector("#name")
+        DescriptionProduct = document.querySelector("#description")
+        BrandProduct = document.querySelector("#brand")
+        ImageProduct = document.querySelector("#image")
+        PriceProduct = document.querySelector("#price")
+    
     prew.innerHTML = ""
     for (const input of [NameProduct, DescriptionProduct, BrandProduct, ImageProduct, PriceProduct]) {
       input.value = ''
     }
   
   }
-  function FocusInputWithoutValue() {
-     NameProduct = document.querySelector("#name")
-   DescriptionProduct = document.querySelector("#description")
-   BrandProduct = document.querySelector("#brand")
-   ImageProduct = document.querySelector("#image")
-   PriceProduct = document.querySelector("#price")
-    
+  async function FocusInputWithoutValue() {
     prew.innerHTML = `<h2 class="text-danger">Compila tutti i campi per procedere!</h2>`
     for (const input of [NameProduct, DescriptionProduct, BrandProduct, ImageProduct, PriceProduct]) {
       if(input.value === "") return input.classList.add("focus-input"), input.focus()
