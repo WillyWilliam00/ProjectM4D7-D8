@@ -1,12 +1,12 @@
  const params = new URLSearchParams(window.location.search)
  const id = params.get("id")
+ const form = document.querySelector(".form")
+ const prew = document.querySelector(".preview")
+ const PrevieWbutton = document.querySelector(".PreviewButton")
+ const SpanProductName = document.querySelectorAll(".product-title")
+
+
  
-
-  const form = document.querySelector(".form")
-  const prew = document.querySelector(".preview")
-  const PrevieWbutton = document.querySelector(".PreviewButton")
-  const SpanProductName = document.querySelectorAll(".product-title")
-
 
  async function GetProduct() {
     form.innerHTML = /*html*/
@@ -108,10 +108,9 @@ async function preview() {
           <div class="card mb-3 border-0">
              <div class="row g-0 my-auto border-radius-black">
                  <div class="col-6">
-                 <a href="" class="position-relative">
                     <img src="${ImageProduct.value}" class="card-img-top border-radius-img" alt="..." style="height: 100%; aspect-ratio: 0.8; object-fit: cover;">
                      <i class="bi bi-plus-circle more fs-2"></i>
-                 </a>
+                
                   
                  </div>
                  <div class="col-6">

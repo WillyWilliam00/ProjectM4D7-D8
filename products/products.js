@@ -34,28 +34,28 @@ async function deleteproduct(name, id) {
   
     if (!confirm(`Sei sicuro di voler eliminare ${name}?`)) {
     return}
+    
 
-    
-    
   const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
     method: "DELETE",
     headers: {
       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjZjIwYzUyYmJmMzAwMTg3OWIxZTgiLCJpYXQiOjE2OTYzOTU3ODgsImV4cCI6MTY5NzYwNTM4OH0.9R7rOYsAE9jENc32hvt3ua7fc2bv2dWkSDK-PGXuOFE"
     }})
     if (response.ok) {
+      
       alert(`Prodotto ${name} eliminato!`)
       DisplayMyProducts(await GetProducts())
     } else {
       alert("Oh Oh, riprova!")
   }
-   
+  
 }
 
 async function DisplayMyProducts(data) {
 
   Row.innerHTML= data.map(product => /*html*/
   `
-  <div class="col-12 d-flex border-radius-black p-2">
+  <div class="col-12 d-flex border-radius-black p-2 my-2">
     <div>
         <img src="${product.imageUrl}"
             class="border-radius-img" alt="..." style="width: 250px; height: 250px; object-fit: cover;">
