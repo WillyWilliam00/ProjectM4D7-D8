@@ -1,5 +1,7 @@
 const Row = document.querySelector(".row")
 const NavBarCart = document.querySelector('.offcanvas-body')
+const ArrayProductInCart = []
+let count = 1
 let result = []
 
 
@@ -112,19 +114,35 @@ function DecreasingPrice() {
 function AddCart(id) {
   
   
+  
+
   const CorrentProduct =  result.find(product => product._id === id) 
+   
+ 
 
-  console.log(CorrentProduct)
+  if(!ArrayProductInCart.includes(CorrentProduct)){
+    ArrayProductInCart.push(CorrentProduct)
+    ArrayProductInCart.find(product => product.name === CorrentProduct.name).quantity = count
+    
+  } else {
+    count++
+     ArrayProductInCart.find(product => product.name === CorrentProduct.name).quantity = count
+  }
+  
+  console.log(ArrayProductInCart)
 
-     NavBarCart.innerHTML +=  /*html*/
-     `<div class=" d-flex flex-row border-bottom border-2 pb-3 pt-3">
-     <img src="${CorrentProduct.imageUrl}">
-     <div class="card-body d-flex flex-column justify-content-around ms-2">
-       <h6 class="card-title card-title-incart">${CorrentProduct.name}</h6>
-       <div class="d-flex justify-content-between align-items-baseline">
-       <p class="card-text">Prezzo: <span class="count-incart fw-medium">${CorrentProduct.price}€</span></p>
-       <button type="button" class="btn bg-danger text-white" onclick='removefromcart("${CorrentProduct._id}")'>X</button>
-       </div>
-     </div>
-     </div>`
+  NavBarCart.innerHTML = ArrayProductInCart.map(product => {
+        /*html*/
+              `<div class=" d-flex flex-row border-bottom border-2 pb-3 pt-3">
+              <img src="${product.imageUrl}" class="col-5">
+              <div class="card-body d-flex flex-column justify-content-around ms-2 " id="${product._id}">
+                <h6 class="card-title card-title-incart text-dark nameCart" >${product.name}</h6>
+                <div class="d-flex justify-content-between align-items-baseline">
+                <p class="card-text text-dark">Prezzo: <span class="count-incart fw-medium">${product.price}€</span></p>
+                <p class="card-text text-dark">Quantità: <span class="count-incart fw-medium">${product.quantity}€</span></p>
+                <button type="button" class="btn bg-danger text-light" onclick='removefromcart("${product._id}")'>X</button>
+                </div>
+              </div>
+              </div>`
+     }).join("")
 }
