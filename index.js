@@ -1,8 +1,10 @@
 const Row = document.querySelector(".row")
 const NavBarCart = document.querySelector('.offcanvas-body')
-const ArrayProductInCart = []
-let count = 1
+const NavCart = document.querySelector(".nav-cart")
+const ArrayProductCart = []
+const CountTot = document.querySelector(".div-animation")
 let result = []
+
 
 
 async function GetProducts() {
@@ -34,7 +36,7 @@ function text() {
     product.name.toLowerCase().includes(value.toLowerCase())
   )
 
-  console.log(ArrayProductSearch)
+  
   DisplayProducts(ArrayProductSearch)
 }
 
@@ -66,7 +68,7 @@ function DisplayProducts(data) {
                <div>
                   <div class="border-bottom border-secondary-subtle d-flex justify-content-between align-items-center pb-3">
                    <p class="fw-bolder m-0" style="font-size: 18px;">${product.name}</p>
-                   <button type="button" class="btn btn-primary bg-success border-0 fs-5 text-light" onclick="AddCart('${product._id}')"><i class="bi bi-cart cart-main"></i>
+                   <button type="button" class="btn btn-primary bg-success border-0 fs-5 text-light hover-button" onclick="AddCart('${product._id}')"><i class="bi bi-cart cart-main"></i>
                   </button>
                   </div>  
                    <p class="card-text py-3 m-0 border-bottom border-secondary-subtle"><span class="fw-bolder">Prezzo:  </span>${product.price}€</p>
@@ -113,31 +115,74 @@ function DecreasingPrice() {
 
 function AddCart(id) {
 
+  NavCart.classList.replace("bi-cart", "bi-cart-fill")
+  animation()
+
+
   const CorrentProduct =  result.find(product => product._id === id) 
-
-  if(!ArrayProductInCart.includes(CorrentProduct)){
-    ArrayProductInCart.push(CorrentProduct)
-    ArrayProductInCart.find(product => product.name === CorrentProduct.name).quantity = count
-    
+  if(!ArrayProductCart.includes(CorrentProduct)){
+    CorrentProduct.quantity = 1
+    ArrayProductCart.push(CorrentProduct)    
   } else {
-   
-     ArrayProductInCart.find(product => product.name === CorrentProduct.name).quantity = count + 1
+    ArrayProductCart.find(product => product.name === CorrentProduct.name).quantity  = CorrentProduct.quantity + 1
   }
-  
-  console.log(ArrayProductInCart)
-
-  NavBarCart.innerHTML = ArrayProductInCart.map(product => 
-        /*html*/
-              `<div class=" d-flex flex-row border-bottom border-2 pb-3 pt-3">
-              <img src="${product.imageUrl}" class="col-5">
-              <div class="card-body d-flex flex-column justify-content-around ms-2 " id="${product._id}">
-                <h6 class="card-title card-title-incart text-dark nameCart" >${product.name}</h6>
-                <div class="d-flex justify-content-between align-items-baseline">
-                <p class="card-text text-dark">Prezzo: <span class="count-incart fw-medium">${product.price}€</span></p>
-                <p class="card-text text-dark">Quantità: <span class="count-incart fw-medium">${product.quantity}</span></p>
-                <button type="button" class="btn bg-danger text-light" onclick='removefromcart("${product._id}")'>X</button>
-                </div>
-              </div>
-              </div>`
-     ).join("")
+  ShowCart()
+  total()
 }
+
+function RemoveCart(id) {
+  const CorrentProduct =  ArrayProductCart.findIndex(product => product._id === id)
+  ArrayProductCart.splice(CorrentProduct, 1)
+  ShowCart()
+  total()
+
+}
+
+function total() {
+  let prezzototale = 0
+  let quantitàtotale = 0
+  const Quantity =  document.querySelector(".quantity")
+  const Price = document.querySelector(".total")
+  const QuantityinCart =  document.querySelectorAll(".quantity-incart")
+  const PriceinCart = document.querySelectorAll(".price-incart")
+
+  PriceinCart.forEach(x => {
+    prezzototale = prezzototale + parseFloat(x.innerHTML)
+  })
+  Price.innerHTML = `${prezzototale}€`
+
+  QuantityinCart.forEach(x => {
+    quantitàtotale = quantitàtotale + parseFloat(x.innerHTML)
+  })
+  Quantity.innerHTML = quantitàtotale
+
+  if(prezzototale === 0){
+    NavCart.classList.replace("bi-cart-fill", "bi-cart")
+    }
+}
+
+function ShowCart() {
+  NavBarCart.innerHTML = ArrayProductCart.map(product => 
+    /*html*/
+          `<div class=" d-flex flex-row border-bottom border-2 pb-3 pt-3">
+          <img src="${product.imageUrl}" class="col-5">
+          <div class="card-body d-flex flex-column justify-content-around ms-2 " id="_${product._id}">
+            <h6 class="card-title card-title-incart text-dark nameCart" >${product.name}</h6>
+            <div class="d-flex justify-content-between align-items-baseline">
+            <div>
+              <p class="card-text text-dark">Prezzo: <span class="price-incart fw-bold">${product.price * product.quantity}€</span></p>
+              <p class="card-text text-dark">Quantità: <span class="quantity-incart  fw-bold">${product.quantity}</span></p>
+            </div>
+            <button type="button" class="btn bg-danger text-light hover-button" onclick='RemoveCart("${product._id}")'>X</button>
+            </div>
+          </div>
+          </div>`
+ ).join("")
+}
+
+function animation() {
+  document.querySelector(".button-cart").classList.add("Animation-Cart");
+
+  setTimeout(() => {
+    document.querySelector(".button-cart").classList.remove("Animation-Cart");
+  }, 500) }

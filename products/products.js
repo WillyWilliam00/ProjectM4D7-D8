@@ -32,11 +32,8 @@ let result = []
 
 async function deleteproduct(name, id) {
   
-    if (!confirm(`Sei sicuro di voler eliminare ${name}?`)) {
-    return}
-    
-
-  const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
+    if (confirm(`Sei sicuro di voler eliminare ${name}?`)) {
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
     method: "DELETE",
     headers: {
       "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjZjIwYzUyYmJmMzAwMTg3OWIxZTgiLCJpYXQiOjE2OTYzOTU3ODgsImV4cCI6MTY5NzYwNTM4OH0.9R7rOYsAE9jENc32hvt3ua7fc2bv2dWkSDK-PGXuOFE"
@@ -48,6 +45,7 @@ async function deleteproduct(name, id) {
     } else {
       alert("Oh Oh, riprova!")
   }
+    }
   
 }
 
