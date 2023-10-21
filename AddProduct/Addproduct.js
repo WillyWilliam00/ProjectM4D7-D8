@@ -54,7 +54,7 @@ async function AddProduct(event) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjZjIwYzUyYmJmMzAwMTg3OWIxZTgiLCJpYXQiOjE2OTYzOTU3ODgsImV4cCI6MTY5NzYwNTM4OH0.9R7rOYsAE9jENc32hvt3ua7fc2bv2dWkSDK-PGXuOFE"
+      "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM0MWNiZGJlNDYzZTAwMTgzZTc4MzIiLCJpYXQiOjE2OTc5MTQwNDUsImV4cCI6MTY5OTEyMzY0NX0.XQkiTkrtulHA_bNmfUbAt_Fv6ocYJLaF5P6RUdI4JLY"
 
     },
     body: JSON.stringify({
