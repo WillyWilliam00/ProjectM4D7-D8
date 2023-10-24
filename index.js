@@ -14,7 +14,7 @@ async function GetProducts() {
 
   try {
     const response = await fetch("https://striveschool-api.herokuapp.com/api/product/",
-      { headers: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM0MWNiZGJlNDYzZTAwMTgzZTc4MzIiLCJpYXQiOjE2OTc5MTQwNDUsImV4cCI6MTY5OTEyMzY0NX0.XQkiTkrtulHA_bNmfUbAt_Fv6ocYJLaF5P6RUdI4JLY" } })
+      { headers: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM3YWIzZmU3NDZhMDAwMTQ4MTQzMmEiLCJpYXQiOjE2OTgxNDcxMzUsImV4cCI6MTY5OTM1NjczNX0.TR1hsSdcexBRjdgceNjq99aPbvXh02T3FgbG1eaML8U" } })
     const data = await response.json()
     result = data
     console.log(result)
