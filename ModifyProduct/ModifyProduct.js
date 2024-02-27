@@ -15,7 +15,7 @@
 
     try {
         const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`,
-            { headers: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM3YWIzZmU3NDZhMDAwMTQ4MTQzMmEiLCJpYXQiOjE2OTgxNDcxMzUsImV4cCI6MTY5OTM1NjczNX0.TR1hsSdcexBRjdgceNjq99aPbvXh02T3FgbG1eaML8U" } })
+            { headers: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM3YWIzZmU3NDZhMDAwMTQ4MTQzMmEiLCJpYXQiOjE3MDkwNDk4MDAsImV4cCI6MTcxMDI1OTQwMH0.Oc34YPNC_iKCwZxPcvu9jlRiqUCZ-tp4q0q5WxLvsyo" } })
         const data = await response.json()
 
         console.log(data)
@@ -151,7 +151,7 @@ async function ModifyProduct(event) {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM3YWIzZmU3NDZhMDAwMTQ4MTQzMmEiLCJpYXQiOjE2OTgxNDcxMzUsImV4cCI6MTY5OTM1NjczNX0.TR1hsSdcexBRjdgceNjq99aPbvXh02T3FgbG1eaML8U"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM3YWIzZmU3NDZhMDAwMTQ4MTQzMmEiLCJpYXQiOjE3MDkwNDk4MDAsImV4cCI6MTcxMDI1OTQwMH0.Oc34YPNC_iKCwZxPcvu9jlRiqUCZ-tp4q0q5WxLvsyo"
             },
             body: JSON.stringify(ModificatedProduct)
         })
