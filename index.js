@@ -29,14 +29,13 @@ async function GetProducts() {
   }
 }
 
-function text() { 
+function text(event) { 
 
-  const value = document.querySelector("input").value
-
+  const value = event.target.value
   let ArrayProductSearch = result.filter(product =>
     product.name.toLowerCase().includes(value.toLowerCase())
   )
-
+    console.log(value)
   
   DisplayProducts(ArrayProductSearch)
 }
