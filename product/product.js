@@ -31,7 +31,7 @@ function DisplayProduct(data) {
         <div>
             <img src="${data.imageUrl}" class="border-radius-black" style="max-width: 600px; max-height: 450px;">
         </div>
-        <div class=" col-6 ms-5 px-3 border-radius-black d-flex flex-column justify-content-evenly">
+        <div class=" col-6 ms-5 px-3 border-radius-black d-flex flex-column justify-content-evenly "  style="background: white">
             <div class="border-bottom border-secondary-subtle py-2">
                 <h2>${data.name}</h2>
             </div>

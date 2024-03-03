@@ -12,8 +12,8 @@ function preview() {
 
   FocusInputWithoutValue()
   if ((NameProduct.value !== "") && (DescriptionProduct.value !== "") && (BrandProduct.value !== "") && (ImageProduct.value !== "") && (PriceProduct.value !== "")) {
-    
-    prew.innerHTML = `
+
+    prew.innerHTML = /*html*/ `
        <div class="card mb-3 border-0">
           <div class="row g-0 my-auto border-radius-black">
               <div class="col-6">
@@ -24,16 +24,16 @@ function preview() {
                 
               </div>
               <div class="col-6">
-                  <div class="card-body d-flex flex-column" style= "height: 100%;">
+                  <div class="card-body d-flex flex-column justify-content-between" style= "height: 100%;">
                       <div>
                           <h5 class="card-title card-title-inbody pb-3 m-0 border-bottom border-secondary-subtle">${NameProduct.value}</h5>
                           <p class="card-text py-3 m-0 border-bottom border-secondary-subtle"><span class="fw-bolder">Prezzo:  </span>${PriceProduct.value}€</p>
                           <p class="card-text py-3 m-0 border-bottom border-secondary-subtle"><span class="fw-bolder">Brand:  </span>${BrandProduct.value}</p>
                       </div> 
-                      <span class="fw-bolder py-3">Description:</span>
-                      <p class="card-text my-auto mb-2 border overflow-auto" style= "max-height: 130px;">${DescriptionProduct.value}</p>
-                      <div class="pt-2"><button type="button" class="border-0 btn btn-primary bg-success border-0 fs-5 text-light"><span><i class="bi bi-cart cart-main"></i></span>
-                       </button></div>
+                       
+                        <button type="button" class="border-0 btn btn-primary bg-aqua border-0 fs-5 text-light"><span><i class="bi bi-cart cart-main"></i></span>
+                        </button>
+                    
                   </div>
               </div>
            </div>
@@ -71,7 +71,7 @@ async function AddProduct(event) {
     ShowModal()
     document.documentElement.classList.remove("filterBody")
     CleanForm()
-    
+
   } else {
     console.error("Cannot send")
     document.querySelector(".waveform").classList.add("d-none")
@@ -81,19 +81,19 @@ async function AddProduct(event) {
 
 
 
-function  ShowModal(){
+function ShowModal() {
   let myModal = new bootstrap.Modal(document.getElementById('myModal'), {});
   myModal.show();
 }
 
-document.addEventListener("click",  function (event) {
-  if(event.target !== PrevieWbutton) {
-   
+document.addEventListener("click", function (event) {
+  if (event.target !== PrevieWbutton) {
+
     for (const input of [NameProduct, DescriptionProduct, BrandProduct, ImageProduct, PriceProduct]) {
-       input.classList.remove("focus-input")
-       
-   }
-  } 
+      input.classList.remove("focus-input")
+
+    }
+  }
 })
 
 function CleanForm() {
@@ -106,7 +106,7 @@ function CleanForm() {
 function FocusInputWithoutValue() {
   prew.innerHTML = `<h2 class="text-danger">Compila tutti i campi per procedere!</h2>`
   for (const input of [NameProduct, DescriptionProduct, BrandProduct, ImageProduct, PriceProduct]) {
-    if(input.value === "") return input.classList.add("focus-input"), input.focus()
-    
- }
+    if (input.value === "") return input.classList.add("focus-input"), input.focus()
+
+  }
 }

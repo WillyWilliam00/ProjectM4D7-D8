@@ -7,7 +7,8 @@
 
 .title-font {
     font-family: 'Russo One', sans-serif;
-    font-size: 4em;
+    font-size: 2em;
+    margin: 0;
 }
 .img-avatar {
     width: 50px;
@@ -60,7 +61,7 @@
   }
 
 .border-radius-black {
-    border: 1px solid black;
+    border: 1px solid #afafaf;
     border-radius: 12px;
 }
 .border-radius-img {
@@ -68,13 +69,19 @@
 }
 .PreviewButton {
     font-weight: bold !important;
-    background-color: black !important;
+    background-color: #0f5132 !important;
     border: none !important;
     height: 50px;
     font-size: 22px !important;
     width: 54%;
 }
-
+.form-label {
+  font-weight: bold;
+  
+}
+.form-control{
+  border: 1px solid #afafaf !important;
+}
 .focus-input {
     border-color: #86b7fe;
     outline: 0;
@@ -112,13 +119,30 @@
   .card a:hover .more{
     z-index: 0;
   }
-
+.bg-aqua{
+  background-color: #055160 !important;
+}
+.navbar-toggler{
+  color: #055160 !important;
+}
+.product-title {
+  color: #0d6efd;
+}
   .hover-button {
     transform:scale(1);
   }
   .hover-button:hover {
     transform:scale(1.05);
   }
+  .input__group {
+    display: flex;
+    align-items: center;
+    width: 25rem
+  }
+  .input__group i {
+    font-size: 25px;
+  }
+   
 
   .lds-ring {
     display: inline-block;
@@ -203,6 +227,7 @@
   .waveform__bar:nth-child(4) {
     animation: grow var(--uib-speed) ease-in-out infinite;
   }
+
   
   @keyframes grow {
     0%,

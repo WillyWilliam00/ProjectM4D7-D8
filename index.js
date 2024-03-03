@@ -3,6 +3,7 @@ const NavBarCart = document.querySelector('.offcanvas-body')
 const NavCart = document.querySelector(".nav-cart")
 const ArrayProductCart = []
 const CountTot = document.querySelector(".div-animation")
+const numberProducts = document.querySelector(".numberProducts")
 let result = []
 
 
@@ -17,7 +18,7 @@ async function GetProducts() {
       { headers: { "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM3YWIzZmU3NDZhMDAwMTQ4MTQzMmEiLCJpYXQiOjE3MDkwNDk4MDAsImV4cCI6MTcxMDI1OTQwMH0.Oc34YPNC_iKCwZxPcvu9jlRiqUCZ-tp4q0q5WxLvsyo" } })
     const data = await response.json()
     result = data
-    console.log(result)
+    numberProducts.innerHTML = result.length
     return data
   }
   catch {
@@ -46,16 +47,14 @@ function text() {
 window.onload = async () => {
   const data = await GetProducts();
   DisplayProducts(data);
-
-
 }
 
 function DisplayProducts(data) {
     
   Row.innerHTML = data.map(product => /*html*/ 
       
-   `<div class=" col-6 card mb-3 border-0">
-   <div class="row g-0 my-auto border-radius-black">
+   `<div class=" col-4 card mb-3 border-0" style="background: #cbc7c7">
+   <div class="row g-0 my-auto border-radius-black" style="background: white">
        <div class="col-6">
        <a href="product/product.html?id=${product._id}" class="position-relative">
           <img src="${product.imageUrl}" class="card-img-top border-radius-img" alt="..." style="height: 100%; aspect-ratio: 0.8; object-fit: cover;">
@@ -64,18 +63,16 @@ function DisplayProducts(data) {
          
        </div>
        <div class="col-6">
-           <div class="card-body d-flex flex-column" style= "height: 100%;">
+           <div class="card-body d-flex flex-column justify-content-between" style= "height: 100%;">
                <div>
                   <div class="border-bottom border-secondary-subtle d-flex justify-content-between align-items-center pb-3">
                    <p class="fw-bolder m-0" style="font-size: 18px;">${product.name}</p>
-                   <button type="button" id="buttonInbody_${product._id}" class="btn btn-primary bg-success border-0 fs-5 text-light hover-button position-relative" onclick="AddCart('${product._id}')"><span></span><i class="bi bi-cart cart-main"></i>
-                  </button>
                   </div>  
                    <p class="card-text py-3 m-0 border-bottom border-secondary-subtle"><span class="fw-bolder">Prezzo:  </span>${product.price}€</p>
                    <p class="card-text py-3 m-0 border-bottom border-secondary-subtle"><span class="fw-bolder">Brand:  </span>${product.brand}</p>
                </div> 
-               <span class="fw-bolder py-3">Description:</span>
-               <p class="card-text my-auto mb-2 border overflow-auto" style= "max-height: 130px;">${product.description}</p>
+               <button type="button" id="buttonInbody_${product._id}" class="btn btn-primary bg-aqua border-0 fs-5 text-light hover-button position-relative" onclick="AddCart('${product._id}')"><span></span><i class="bi bi-cart cart-main"></i>
+                  </button>
            </div>
        </div>
     </div>
@@ -145,6 +142,7 @@ function RemoveCart(id) {
   total()
 
 }
+ 
 
 function total() {
   let prezzototale = 0
@@ -171,15 +169,13 @@ function ShowCart() {
   NavBarCart.innerHTML = ArrayProductCart.map(product => 
     /*html*/
           `<div class=" d-flex flex-row border-bottom border-2 pb-3 pt-3">
-          <img src="${product.imageUrl}" class="col-5">
-          <div class="card-body d-flex flex-column justify-content-around ms-2 " id="_${product._id}">
-            <h6 class="card-title card-title-incart text-dark nameCart" >${product.name}</h6>
-            <div class="d-flex justify-content-between align-items-baseline">
-            <div>
-              <p class="card-text text-dark">Prezzo: <span class="price-incart fw-bold">${product.price * product.quantity}€</span></p>
-              <p class="card-text text-dark">Quantità: <span class="quantity-incart  fw-bold">${product.quantity}</span></p>
-            </div>
-            <button type="button" class="btn bg-danger text-light hover-button" onclick='RemoveCart("${product._id}")'>X</button>
+          <img src="${product.imageUrl}" class="col-5" style="objet-fit: cover; height: 10rem">
+          <div class="card-body d-flex flex-column justify-content-between ms-2 " id="_${product._id}">
+            <h5 class="card-title card-title-incart text-dark nameCart" >${product.name}</h5>
+            <div class="d-flex flex-column">
+              <p class="card-text text-dark m-0">Prezzo: <span class="price-incart fw-bold">${product.price * product.quantity}€</span></p>
+              <p class="card-text text-dark m-0">Quantità: <span class="quantity-incart  fw-bold">${product.quantity}</span></p>
+              <button type="button" class="btn bg-danger text-light hover-button" onclick='RemoveCart("${product._id}")'>X</button>
             </div>
           </div>
           </div>`

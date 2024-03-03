@@ -48,8 +48,8 @@ async function ShowForm(data) {
     form.innerHTML = /*html*/
 
     `
-    <h4 class="mb-5">Compila il form e modifica <span class="product-title">${data.name}</span></h4>
-                    <form class="row g-3 d-flex flex-column border-radius-black" onsubmit="ModifyProduct(event)">
+    <h4 class="mb-5" style="font-weight: bolder;">Compila il form e modifica <span class="product-title">${data.name}</span></h4>
+                    <form class="row g-3 d-flex flex-column border-radius-black"  style="background-color: rgb(211, 211, 211);" onsubmit="ModifyProduct(event)">
                         <div class="col-12">
                             <label for="name" class="form-label">Name</label>
                             <input required type="text" class="form-control" id="name" placeholder="Product Name" value="${data.name}">
@@ -83,7 +83,7 @@ async function ShowForm(data) {
                         </div>
 
                         <div class="col-12 text-center py-3">
-                            <button class="btn btn-primary fw-bolder bg-success border-0 mx-1 fs-4 hover-button" type="submit">Modify Product</button>
+                            <button class="btn btn-primary fw-bolder bg-aqua border-0 mx-1 fs-4 hover-button" type="submit">Modify Product</button>
                             <button class="btn btn-primary fw-bolder bg-danger border-0 mx-1 fs-4 hover-button" onclick="CleanForm()" type="button">Clean All</button>
                         </div>
                     </form>
@@ -122,7 +122,7 @@ async function preview() {
                          </div> 
                          <span class="fw-bolder py-3">Description:</span>
                          <p class="card-text my-auto mb-2 border overflow-auto" style= "max-height: 130px;">${DescriptionProduct.value}</p>
-                         <div class="pt-2"><button type="button" class="border-0 btn btn-primary bg-success border-0 fs-5 text-light"><span><i class="bi bi-cart cart-main"></i></span>
+                         <div class="pt-2"><button type="button" class="border-0 btn btn-primary bg-aqua border-0 fs-5 text-light"><span><i class="bi bi-cart cart-main"></i></span>
                           </button></div>
                      </div>
                  </div>

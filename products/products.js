@@ -53,7 +53,7 @@ async function DisplayMyProducts(data) {
 
   Row.innerHTML= data.map(product => /*html*/
   `
-  <div class="col-12 d-flex border-radius-black p-2 my-2">
+  <div class="col-12 d-flex border-radius-black p-2 my-2" style="background: white">
     <div>
         <img src="${product.imageUrl}"
             class="border-radius-img" alt="..." style="width: 250px; height: 250px; object-fit: cover;">

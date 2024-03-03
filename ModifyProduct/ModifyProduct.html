@@ -11,18 +11,18 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
-<body class="position-relative" >
-    <nav class="navbar bg-black text-light sticky-top">
+<body class="position-relative" style="background-color: #cbc7c7;" >
+    <nav class="navbar bg-aqua text-light sticky-top">
         <div class="container-fluid">
-            <div class="d-flex align-items-baseline">
+            <div class="d-flex align-items-center">
                 <ul class="nav-item dropdown p-0 m-0">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="../img/download.jpeg" alt="" class="img-avatar">
+                        <img src="/img/download.jpeg" alt="" class="img-avatar">
                         <span>William Costa</span>
                     </a>
 
-                    <ul class="dropdown-menu bg-black">
+                    <ul class="dropdown-menu bg-aqua">
                         <li><a class="dropdown-item text-light" href="../index.html">Home</a></li>
                         <li><a class="dropdown-item text-light" href="../products/products.html">I Miei Prodotti</a></li>
                         <li><a class="dropdown-item text-light" href="../AddProduct/AddProduct.html">Aggiungi Prodotto</a>
@@ -30,15 +30,28 @@
                     </ul>
 
                 </ul>
-                <a class="text-decoration-none text-light" href="../index.html"><div class="border px-2 ms-5 me-3"><h6 class="m-0 p-2">HOME</h6></div></a>
-                <a class="text-decoration-none text-light" href="../products/products.html"><div class="border px-2 mx-3 "><h6 class="m-0 p-2">I Miei Prodotti</h6></div></a>
-                <a class="text-decoration-none text-light" href="../AddProduct/AddProduct.html"><div class="border px-2 mx-3"><h6 class="m-0 p-2">Aggiungi Prodotto</h6></div></a>
             </div>
-
-            <div class="m-auto">
-                <h4 class="title-font">Bazar Di Willy</h4>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-dark" id="offcanvasNavbarLabel">Il Mio Carrello:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                </div>
+                <div>
+                    <div
+                        class="d-flex px-3 py-3 justify-content-between align-items-baseline border-bottom border-1 border-top border-2 text-light bg-aqua">
+                        <h5 class="m-0">Totale da pagare:</h5>
+                        <p class="total m-0 fw-medium">0.00€</p>
+                    </div>
+                    <div
+                        class="d-flex px-3 py-3 justify-content-between align-items-baseline border-top border-1 text-light bg-aqua">
+                        <h5 class="m-0">Quantità:</h5>
+                        <p class="quantity m-0 fw-medium">0</p>
+                    </div>
+                </div>
             </div>
-            
         </div>
     </nav>
     <main class="mb-5">
@@ -50,7 +63,7 @@
                     
                 </div>
                 <div class="col-5 d-flex flex-column">
-                    <button class="btn btn-primary PreviewButton mx-auto hover-button" onclick="preview()" type="button" >↓ PREVIEW ↓</button>
+                    <button class="btn btn-primary PreviewButton mx-auto hover-button" onclick="preview()" type="button" >↓ Clicca per l'anteprima ↓</button>
                         <div class="preview  my-auto"></div>
                 </div>
             </div>

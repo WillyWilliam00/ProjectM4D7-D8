@@ -11,43 +11,59 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
-<body class="position-relative">
-    <nav class="navbar bg-black text-light sticky-top">
+<body class="position-relative" style="background-color: #cbc7c7;">
+    <nav class="navbar bg-aqua text-light sticky-top">
         <div class="container-fluid">
-            <div class="d-flex align-items-baseline">
+            <div class="d-flex align-items-center">
                 <ul class="nav-item dropdown p-0 m-0">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <img src="../img/download.jpeg" alt="" class="img-avatar">
+                        <img src="/img/download.jpeg" alt="" class="img-avatar">
                         <span>William Costa</span>
                     </a>
 
-                    <ul class="dropdown-menu bg-black">
+                    <ul class="dropdown-menu bg-aqua">
                         <li><a class="dropdown-item text-light" href="../index.html">Home</a></li>
-                        <li><a class="dropdown-item text-light" href="../products/products.html">I Miei Prodotti</a></li>
+                        <li><a class="dropdown-item text-light" href="../products/products.html">I Miei Prodotti</a>
+                        </li>
                         <li><a class="dropdown-item text-light" href="AddProduct.html">Aggiungi Prodotto</a>
                         </li>
                     </ul>
 
                 </ul>
-                <a class="text-decoration-none text-light" href="../index.html"><div class="border px-2 ms-5 me-3"><h6 class="m-0 p-2">HOME</h6></div></a>
-                <a class="text-decoration-none text-light" href="../products/products.html"><div class="border px-2 mx-3 "><h6 class="m-0 p-2">I Miei Prodotti</h6></div></a>
-                <a class="text-decoration-none text-light" href="AddProduct.html"><div class="border px-2 mx-3"><h6 class="m-0 p-2">Aggiungi Prodotto</h6></div></a>
             </div>
-
-            <div class="m-auto">
-                <h4 class="title-font">Bazar Di Willy</h4>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-dark" id="offcanvasNavbarLabel">Il Mio Carrello:</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                </div>
+                <div>
+                    <div
+                        class="d-flex px-3 py-3 justify-content-between align-items-baseline border-bottom border-1 border-top border-2 text-light bg-aqua">
+                        <h5 class="m-0">Totale da pagare:</h5>
+                        <p class="total m-0 fw-medium">0.00€</p>
+                    </div>
+                    <div
+                        class="d-flex px-3 py-3 justify-content-between align-items-baseline border-top border-1 text-light bg-aqua">
+                        <h5 class="m-0">Quantità:</h5>
+                        <p class="quantity m-0 fw-medium">0</p>
+                    </div>
+                </div>
             </div>
-            
         </div>
     </nav>
+
     <main class="mb-5">
-        <div class="container p-0 mb-5 mt-5">
+        <div class="container p-0 mb-5 mt-4">
             <div class="row d-flex justify-content-between">
 
                 <div class="col-5 ">
-                    <h4 class="mb-5">Compila il form e aggiungi un nuovo prodotto:</h4>
-                    <form class="row g-3 d-flex flex-column border-radius-black" onsubmit="AddProduct(event)">
+                    <h4 class="mb-5" style="font-weight: bolder;">Compila il form e aggiungi un nuovo prodotto:</h4>
+                    <form class="row g-3 d-flex flex-column border-radius-black" onsubmit="AddProduct(event)"
+                        style="background-color: rgb(211, 211, 211);">
                         <div class="col-12">
                             <label for="name" class="form-label">Name</label>
                             <input required type="text" class="form-control" id="name" placeholder="Product Name">
@@ -75,58 +91,65 @@
                             <label for="price" class="form-label">Price</label>
                             <div class="d-flex">
                                 <span class="input-group-text form-price-border-span">€</span>
-                                <input required type="text" class="form-control form-price-border-input" id="price" placeholder="5.50">
+                                <input required type="text" class="form-control form-price-border-input" id="price"
+                                    placeholder="5.50">
                             </div>
 
                         </div>
 
                         <div class="col-12 text-center py-3">
-                            <button class="btn btn-primary fw-bolder bg-success border-0 mx-1 fs-4 hover-button" type="submit">Add Product</button>
-                            <button class="btn btn-primary fw-bolder bg-danger border-0 mx-1 fs-4 hover-button" onclick="CleanForm()" type="button">Clean All</button>
+                            <button class="btn btn-primary fw-bolder bg-aqua border-0 mx-1 fs-4 hover-button"
+                                type="submit">Add Product</button>
+                            <button class="btn btn-primary fw-bolder bg-danger border-0 mx-1 fs-4 hover-button"
+                                onclick="CleanForm()" type="button">Clean All</button>
                         </div>
                     </form>
 
                 </div>
                 <div class="col-5 d-flex flex-column">
-                    <button class="btn btn-primary PreviewButton mx-auto hover-button" onclick="preview()" type="button" >↓ PREVIEW ↓</button>
-                        <div class="preview  my-auto"></div>
+                    <button class="btn btn-primary PreviewButton mx-auto hover-button" onclick="preview()"
+                        type="button">↓ Clicca per l'anteprima ↓</button>
+                    <div class="preview  my-auto"></div>
                 </div>
             </div>
         </div>
         </div>
     </main>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                Hai aggiunto un prodotto con successo!
-            </div>
-            <div class="modal-footer flex-column">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aggiungi un nuovo prodotto</button>
-                <div>
-                    <a href="../products/products.html"><button type="button" class="btn btn-secondary bg-success text-light">I Tuoi Prodotti</button></a>
-                    <a href="../index.html"><button type="button" class="btn btn-secondary bg-success text-light">Home Page</button></a>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    Hai aggiunto un prodotto con successo!
+                </div>
+                <div class="modal-footer flex-column">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aggiungi un nuovo
+                        prodotto</button>
+                    <div>
+                        <a href="../products/products.html"><button type="button"
+                                class="btn btn-secondary bg-success text-light">I Tuoi Prodotti</button></a>
+                        <a href="../index.html"><button type="button"
+                                class="btn btn-secondary bg-success text-light">Home Page</button></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
-    
 
-    
 
-  
+
+
+
 
     <div class="waveform d-none">
         <div class="waveform__bar"></div>
         <div class="waveform__bar"></div>
         <div class="waveform__bar"></div>
         <div class="waveform__bar"></div>
-      </div>
+    </div>
 
 
 
@@ -136,9 +159,13 @@
 
 
     <script src="Addproduct.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-        
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
