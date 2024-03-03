@@ -53,7 +53,7 @@ function DisplayProducts(data) {
     
   Row.innerHTML = data.map(product => /*html*/ 
       
-   `<div class=" col-4 card mb-3 border-0" style="background: #cbc7c7">
+   `<div class=" col-xs-12 col-md-6 col-lg-4 card mb-3 border-0" style="background: #cbc7c7">
    <div class="row g-0 my-auto border-radius-black" style="background: white">
        <div class="col-6">
        <a href="product/product.html?id=${product._id}" class="position-relative">

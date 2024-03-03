@@ -31,24 +31,7 @@
 .dropdown-item:focus, .dropdown-item:hover {
     background-color: #6c757d !important;
 }
-
-.jumbotron {
-    height: 18em;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-inline: auto;
-    color: white;
-    width: 70%;
-    background-image: url(img/istockphoto-1298777114-170667a.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.jumbotron h1, .jumbotron h4 {
-    font-family: 'Russo One', sans-serif;
-    font-size: 3.5rem;
-}
+ 
 
 .countQuantity {
   position: absolute;
@@ -73,7 +56,7 @@
     border: none !important;
     height: 50px;
     font-size: 22px !important;
-    width: 54%;
+    
 }
 .form-label {
   font-weight: bold;
@@ -144,6 +127,17 @@
   }
    
 
+@media only screen and (max-width: 768px) {
+  .h-description-mobile{
+    height: 8rem;
+  }
+  .img-myproducts-mobile{
+    width: 125px !important;
+  }
+  .position-button-mobile{
+    position: absolute;
+  }
+}
   .lds-ring {
     display: inline-block;
     position: relative;

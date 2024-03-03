@@ -16,14 +16,14 @@ function preview() {
     prew.innerHTML = /*html*/ `
        <div class="card mb-3 border-0">
           <div class="row g-0 my-auto border-radius-black">
-              <div class="col-6">
+              <div class="col-12 col-md-6">
               <a href="" class="position-relative">
                  <img src="${ImageProduct.value}" class="card-img-top border-radius-img" alt="..." style="height: 100%; aspect-ratio: 0.8; object-fit: cover;">
                   <i class="bi bi-plus-circle more fs-2"></i>
               </a>
                 
               </div>
-              <div class="col-6">
+              <div class="col-12 col-md-6">
                   <div class="card-body d-flex flex-column justify-content-between" style= "height: 100%;">
                       <div>
                           <h5 class="card-title card-title-inbody pb-3 m-0 border-bottom border-secondary-subtle">${NameProduct.value}</h5>

@@ -56,16 +56,16 @@ async function DisplayMyProducts(data) {
   <div class="col-12 d-flex border-radius-black p-2 my-2" style="background: white">
     <div>
         <img src="${product.imageUrl}"
-            class="border-radius-img" alt="..." style="width: 250px; height: 250px; object-fit: cover;">
+            class="border-radius-img img-myproducts-mobile" alt="..." style="width: 250px; height: 250px; object-fit: cover;">
     </div>
     <div class="ps-4 d-flex flex-column justify-content-evenly">
         <h5 class="m-0">${product.name}</h5>
         <p  class="m-0"><span class="fw-bolder">Prezzo: </span>${product.price}€</p>
         <p  class="m-0"><span class="fw-bolder">Brand: </span>${product.brand}</p>
         <span class="fw-bolder">Description:</span>
-        <p  class="m-0">${product.description}</p>
+        <p  class="m-0 overflow-auto overflow-md-visible h-description-mobile">${product.description}</p>
      </div>
-     <div class="d-flex align-items-start pt-1 pe-1">
+     <div class="d-flex align-items-start pt-1 pe-1 position-button-mobile  ">
         <a href="../ModifyProduct/ModifyProduct.html?id=${product._id}"><button type="button" class="btn btn-warning hover-button" ><i class="bi bi-pencil-square"></i></button></a>
         <button type="button" class="btn btn-danger ms-1 hover-button" onclick="deleteproduct('${product.name}', '${product._id}')"><i class="bi bi-trash"></i></button>
      </div>

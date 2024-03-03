@@ -107,13 +107,13 @@ async function preview() {
        prew.innerHTML = `
           <div class="card mb-3 border-0">
              <div class="row g-0 my-auto border-radius-black">
-                 <div class="col-6">
+                 <div class="col-12 col-md-6">
                     <img src="${ImageProduct.value}" class="card-img-top border-radius-img" alt="..." style="height: 100%; aspect-ratio: 0.8; object-fit: cover;">
                      <i class="bi bi-plus-circle more fs-2"></i>
                 
                   
                  </div>
-                 <div class="col-6">
+                 <div class="col-12 col-md-6">
                      <div class="card-body d-flex flex-column" style= "height: 100%;">
                          <div>
                              <h5 class="card-title card-title-inbody pb-3 m-0 border-bottom border-secondary-subtle">${NameProduct.value}</h5>

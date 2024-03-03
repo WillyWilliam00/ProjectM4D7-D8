@@ -27,11 +27,11 @@ function DisplayProduct(data) {
 
     col.innerHTML =  /*html*/
 
-    `<div class="d-flex justify-content-center align-items-center">
+    `<div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
         <div>
             <img src="${data.imageUrl}" class="border-radius-black" style="max-width: 600px; max-height: 450px;">
         </div>
-        <div class=" col-6 ms-5 px-3 border-radius-black d-flex flex-column justify-content-evenly "  style="background: white">
+        <div class=" col-12 ms-0 col-md-6 ms-md-5 px-3 border-radius-black d-flex flex-column justify-content-evenly "  style="background: white">
             <div class="border-bottom border-secondary-subtle py-2">
                 <h2>${data.name}</h2>
             </div>
